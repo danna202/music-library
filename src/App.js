@@ -1,7 +1,10 @@
-import { useEffect, useState} from "react"
-import SearchBar from './Components/SearchBar'
-import Gallery from "./Components/Gallery"
-import { DataContext } from "../Context/DataContext"
+import { useEffect, useState} from "react";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import SearchBar from './Components/SearchBar';
+import Gallery from "./Components/Gallery";
+import { DataContext } from './Context/DataContext';
+import AlbumView from './Components/AlbumView';
+import ArtistView from './Components/ArtistView'
 
 function App() {
   const [search, setSearch] = useState('')
@@ -38,10 +41,12 @@ function App() {
     <div >
       <SearchBar handleSearch={handleSearch}/>
       {message}
-      <DataContext.Provider value ={data}>
-        <Gallery/>
+
+      <DataContext.Provider value={data}>
+         <Gallery data={data}/>
+         <AlbumView />
+         <ArtistView />
       </DataContext.Provider>
-     
     </div>
   );
 }

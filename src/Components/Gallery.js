@@ -4,8 +4,8 @@ import { DataContext } from "../Context/DataContext"
 
 
 
-function Gallery() {
-    const data = useContext(DataContext)
+function Gallery({ data }) {
+    // const data = useContext(DataContext)
     const display = data.map((item, i) => {
         return (
             <GalleryItem key={i} item={item} />
