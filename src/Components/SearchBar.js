@@ -1,4 +1,5 @@
 import { useState } from 'react'
+// import { SearchContext } from '../Context/SearchContext'
 
 function SearchBar({ handleSearch }) {
     const [searchTerm, setSearchTerm] = useState('')
