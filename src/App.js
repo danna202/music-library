@@ -1,5 +1,6 @@
+// import './App.css';
 import { useEffect, useState} from 'react';
-import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import SearchBar from './Components/SearchBar';
 import Gallery from "./Components/Gallery";
 import AlbumView from './Components/AlbumView';
@@ -30,7 +31,7 @@ function App() {
           setData(data.results)
         } else {
           setMessage('Results not found')
-        }
+      }
         console.log(data)
       }
         
@@ -40,15 +41,15 @@ function App() {
 
   return (
     <div >
-      {/* <SearchBar handleSearch = {handleSearch}/> */}
-			
-			{/* <DataContext.Provider value={data}>
-				<Gallery />
-			</DataContext.Provider> */}
-     {message}
+			<DataContext.Provider value={data}>
+				 <Gallery /> 
+			</DataContext.Provider>  
+     {message} 
         <Router>
           <Routes>
-            <Route path="/" element={
+            <Route 
+              path='/' 
+              element={
                 <>
                 <SearchBar handleSearch={handleSearch}/>
                 <Gallery data={data}/>
