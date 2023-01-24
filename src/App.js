@@ -28,7 +28,7 @@ function App() {
         if (data.results.length > 0) {
             setData(data.results)
         } else {
-          setMessage('Results not found')
+          setMessage('Data not found')
       }
     }
         
