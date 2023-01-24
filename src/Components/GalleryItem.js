@@ -1,5 +1,5 @@
 import { useState} from 'react'
-// import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 
 function GalleryItem({ item }){
@@ -37,17 +37,17 @@ function GalleryItem({ item }){
             <div style={detailedStyle}>
                 <h2>{item.trackName}</h2>
                 <h3>
-                    {/* <Link to={`/artist/${item.artistId}`}>
+                    <Link to={`/artist/${item.artistId}`}>
                         {item.artistName}
-                    </Link> */}
+                    </Link> 
                 </h3>
                 <h3>
-                    {/* <Link to={`/album/${item.collectionId}`}>
+                     <Link to={`/album/${item.collectionId}`}>
                         {item.collectionName}
-                    </Link> */}
+                    </Link> 
                 </h3> 
                 <h4>{item.primaryGenreName}</h4>
-                <h4>{item.releaseDate}</h4>
+                <h4>{item.releaseDate}</h4> 
             </div>
         )
     }

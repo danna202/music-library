@@ -1,5 +1,4 @@
-// import './App.css';
-import { useEffect, useState} from 'react';
+import { useEffect, useState, Fragment} from 'react';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import SearchBar from './Components/SearchBar';
 import Gallery from "./Components/Gallery";
@@ -27,37 +26,37 @@ function App() {
         const data = await response.json()
        
         if (data.results.length > 0) {
-          
-          setData(data.results)
+            setData(data.results)
         } else {
           setMessage('Results not found')
       }
-        console.log(data)
-      }
+    }
         
       fetchData()
     }
   }, [search])
 
+  
+
   return (
     <div >
-			<DataContext.Provider value={data}>
-				 <Gallery /> 
-			</DataContext.Provider>  
+		  
      {message} 
         <Router>
           <Routes>
             <Route 
               path='/' 
               element={
-                <>
+                <Fragment>
                 <SearchBar handleSearch={handleSearch}/>
-                <Gallery data={data}/>
-                </>
+                <DataContext.Provider value={data}> 
+                  <Gallery data={data}/>
+                </DataContext.Provider>  
+                </Fragment>
               } 
             />
-                <Route path='/album/:id' element={<AlbumView/>} />
-                <Route path='/artist/:id' element={<ArtistView/>} />
+                <Route path='/album/:albumId' element={<AlbumView/>} />
+                <Route path='/artist/:artistId' element={<ArtistView/>} />
            </Routes>
         </Router>
     </div>
